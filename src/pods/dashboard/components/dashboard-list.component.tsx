@@ -1,5 +1,4 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
 import { Deck } from '../dashboard.vm';
 import { DashboardCardComponent } from './dashboard.card.component'
 import * as classes from './dashboard-list.component.style';
