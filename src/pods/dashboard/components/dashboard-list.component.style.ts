@@ -5,3 +5,7 @@ export const content = css`
   flex-direction: column;
   gap: 10px;
 `;
+
+export const title = css`
+  text-align: center
+`;

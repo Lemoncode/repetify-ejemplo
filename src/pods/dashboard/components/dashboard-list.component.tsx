@@ -13,7 +13,7 @@ export const DashboardListComponent: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={classes.content}>
-      <Typography>Elije tu mazo</Typography>
+      <h1 className={classes.title}>Elije tu mazo</h1>
       {
         decks.map(deck => (
           <DashboardCardComponent key={deck.id} deck={deck} />
