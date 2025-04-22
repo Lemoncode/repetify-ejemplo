@@ -1,7 +1,7 @@
 import React from 'react';
 import { Deck } from './dashboard.vm';
 import { getDecks } from './api';
-import { DashboardListComponent } from './dashboard-list.component';
+import { DashboardListComponent } from './components';
 import { mapperDeckFromApiModelToVmModel } from './dashboard.mappers';
 
 export const DashboardPod: React.FC = () => {
@@ -13,7 +13,6 @@ export const DashboardPod: React.FC = () => {
 
   const loadDeck = async () => {
     const apiDecks = await getDecks();
-    console.log(apiDecks);
     const vmDecks = mapperDeckFromApiModelToVmModel(apiDecks);
     setDecks(vmDecks);
   }

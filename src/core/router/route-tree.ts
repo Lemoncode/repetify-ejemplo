@@ -15,6 +15,7 @@ import { Route as LoginImport } from './../../scenes/login'
 import { Route as AuthImport } from './../../scenes/_auth'
 import { Route as IndexImport } from './../../scenes/index'
 import { Route as AuthDashboardIndexImport } from './../../scenes/_auth/dashboard/index'
+import { Route as AuthDashboardDeskDeskIdIndexImport } from './../../scenes/_auth/dashboard/desk/$deskId/index'
 
 // Create/Update Routes
 
@@ -40,6 +41,13 @@ const AuthDashboardIndexRoute = AuthDashboardIndexImport.update({
   path: '/dashboard/',
   getParentRoute: () => AuthRoute,
 } as any)
+
+const AuthDashboardDeskDeskIdIndexRoute =
+  AuthDashboardDeskDeskIdIndexImport.update({
+    id: '/dashboard/desk/$deskId/',
+    path: '/dashboard/desk/$deskId/',
+    getParentRoute: () => AuthRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -73,6 +81,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthDashboardIndexImport
       parentRoute: typeof AuthImport
     }
+    '/_auth/dashboard/desk/$deskId/': {
+      id: '/_auth/dashboard/desk/$deskId/'
+      path: '/dashboard/desk/$deskId'
+      fullPath: '/dashboard/desk/$deskId'
+      preLoaderRoute: typeof AuthDashboardDeskDeskIdIndexImport
+      parentRoute: typeof AuthImport
+    }
   }
 }
 
@@ -80,10 +95,12 @@ declare module '@tanstack/react-router' {
 
 interface AuthRouteChildren {
   AuthDashboardIndexRoute: typeof AuthDashboardIndexRoute
+  AuthDashboardDeskDeskIdIndexRoute: typeof AuthDashboardDeskDeskIdIndexRoute
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
   AuthDashboardIndexRoute: AuthDashboardIndexRoute,
+  AuthDashboardDeskDeskIdIndexRoute: AuthDashboardDeskDeskIdIndexRoute,
 }
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
@@ -93,6 +110,7 @@ export interface FileRoutesByFullPath {
   '': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
+  '/dashboard/desk/$deskId': typeof AuthDashboardDeskDeskIdIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -100,6 +118,7 @@ export interface FileRoutesByTo {
   '': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
+  '/dashboard/desk/$deskId': typeof AuthDashboardDeskDeskIdIndexRoute
 }
 
 export interface FileRoutesById {
@@ -108,14 +127,21 @@ export interface FileRoutesById {
   '/_auth': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/_auth/dashboard/': typeof AuthDashboardIndexRoute
+  '/_auth/dashboard/desk/$deskId/': typeof AuthDashboardDeskDeskIdIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/login' | '/dashboard'
+  fullPaths: '/' | '' | '/login' | '/dashboard' | '/dashboard/desk/$deskId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/login' | '/dashboard'
-  id: '__root__' | '/' | '/_auth' | '/login' | '/_auth/dashboard/'
+  to: '/' | '' | '/login' | '/dashboard' | '/dashboard/desk/$deskId'
+  id:
+  | '__root__'
+  | '/'
+  | '/_auth'
+  | '/login'
+  | '/_auth/dashboard/'
+  | '/_auth/dashboard/desk/$deskId/'
   fileRoutesById: FileRoutesById
 }
 
@@ -152,7 +178,8 @@ export const routeTree = rootRoute
     "/_auth": {
       "filePath": "_auth.tsx",
       "children": [
-        "/_auth/dashboard/"
+        "/_auth/dashboard/",
+        "/_auth/dashboard/desk/$deskId/"
       ]
     },
     "/login": {
@@ -160,6 +187,10 @@ export const routeTree = rootRoute
     },
     "/_auth/dashboard/": {
       "filePath": "_auth/dashboard/index.tsx",
+      "parent": "/_auth"
+    },
+    "/_auth/dashboard/desk/$deskId/": {
+      "filePath": "_auth/dashboard/desk/$deskId/index.tsx",
       "parent": "/_auth"
     }
   }
