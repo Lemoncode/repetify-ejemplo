@@ -14,7 +14,7 @@ export const DashboardCardComponent: React.FC<Props> = (props: Props) => {
   const navigate = useNavigate();
 
   const handleNavegate = (deckId: string) => {
-    navigate({ to: '/dashboard/card/$deckId', params: { deckId } })
+    navigate({ to: '/card/$deckId', params: { deckId } })
   }
 
   return (
