@@ -94,6 +94,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCardDeckIdIndexImport
       parentRoute: typeof AuthImport
     }
+    '/_auth/result/': {
+      id: '/_auth/result/'
+      path: '/result'
+      fullPath: '/result'
+      preLoaderRoute: typeof AuthResultIndexImport
+      parentRoute: typeof AuthImport
+    }
   }
 }
 
@@ -102,11 +109,13 @@ declare module '@tanstack/react-router' {
 interface AuthRouteChildren {
   AuthDashboardIndexRoute: typeof AuthDashboardIndexRoute
   AuthCardDeckIdIndexRoute: typeof AuthCardDeckIdIndexRoute
+  AuthResultIndexRoute: typeof AuthResultIndexRoute
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
   AuthDashboardIndexRoute: AuthDashboardIndexRoute,
   AuthCardDeckIdIndexRoute: AuthCardDeckIdIndexRoute,
+  AuthResultIndexRoute: AuthResultIndexRoute,
 }
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
@@ -117,6 +126,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
   '/card/$deckId': typeof AuthCardDeckIdIndexRoute
+  '/result': typeof AuthResultIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -125,6 +135,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
   '/card/$deckId': typeof AuthCardDeckIdIndexRoute
+  '/result': typeof AuthResultIndexRoute
 }
 
 export interface FileRoutesById {
@@ -134,13 +145,14 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_auth/dashboard/': typeof AuthDashboardIndexRoute
   '/_auth/card/$deckId/': typeof AuthCardDeckIdIndexRoute
+  '/_auth/result/': typeof AuthResultIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/login' | '/dashboard' | '/card/$deckId'
+  fullPaths: '/' | '' | '/login' | '/dashboard' | '/card/$deckId' | '/result'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/login' | '/dashboard' | '/card/$deckId'
+  to: '/' | '' | '/login' | '/dashboard' | '/card/$deckId' | '/result'
   id:
   | '__root__'
   | '/'
@@ -148,6 +160,7 @@ export interface FileRouteTypes {
   | '/login'
   | '/_auth/dashboard/'
   | '/_auth/card/$deckId/'
+  | '/_auth/result/'
   fileRoutesById: FileRoutesById
 }
 

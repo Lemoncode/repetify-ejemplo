@@ -44,7 +44,7 @@ export const CardPod: React.FC = () => {
       setPage(nextPage);
       const totalPageSize = totalPage - 1;
       if (page > totalPageSize) {
-        navigate({ to: '/dashboard/result' });
+        navigate({ to: '/result' });
       }
     }
   }
@@ -55,7 +55,7 @@ export const CardPod: React.FC = () => {
 
   return (
     <div>
-      {isNotAnswer === true ? <CardComponent totalPage={totalPage} page={page} card={card} onShowAnswer={handleShowAnswer} /> : <AnswerComponent totalPage={totalPage} page={page} card={card} onAccept={handleAccept} onFail={handleFail} />
+      {isNotAnswer ? <CardComponent totalPage={totalPage} page={page} card={card} onShowAnswer={handleShowAnswer} /> : <AnswerComponent totalPage={totalPage} page={page} card={card} onAccept={handleAccept} onFail={handleFail} />
       }
     </div>
   )
