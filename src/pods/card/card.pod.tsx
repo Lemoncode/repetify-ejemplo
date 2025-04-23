@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import { useParams } from '@tanstack/react-router';
 import { CardComponent, AnswerComponent } from './components';
 import { getCard, countCard } from './api';
@@ -11,6 +12,7 @@ export const CardPod: React.FC = () => {
   const [page, setPage] = React.useState<number>(1);
   const [totalPage, setTotalPage] = React.useState<number>(0);
   const [isNotAnswer, setIsNotAnswer] = React.useState<boolean>(true);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     load();
@@ -40,6 +42,10 @@ export const CardPod: React.FC = () => {
       const cardVm = mapCardFromApiModelToVmModel(card);
       setCard(cardVm);
       setPage(nextPage);
+      const totalPageSize = totalPage - 1;
+      if (page > totalPageSize) {
+        navigate({ to: '/dashboard/result' });
+      }
     }
   }
 

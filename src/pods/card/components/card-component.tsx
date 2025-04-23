@@ -20,7 +20,7 @@ export const CardComponent: React.FC<Props> = (props: Props) => {
       <h2>{card.originalWord}</h2>
       <Button onClick={onShowAnswer}>Ver respuesta</Button>
       <div className={classes.finishReview}>
-        <NavigationButton path=''>Terminar</NavigationButton>
+        <NavigationButton path='/result'>Terminar</NavigationButton>
       </div>
     </div>
   )

@@ -72,8 +72,7 @@ export const cards: Card[] = [
     correctReviewStreak: 11,
     nextReviewDate: new Date('2026-05-23'),
     previousCorrectReview: new Date('2022-10-01'),
-  }
-  ,
+  },
   {
     id: '9',
     deckId: '1',

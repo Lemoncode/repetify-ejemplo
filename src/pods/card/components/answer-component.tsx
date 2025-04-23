@@ -22,7 +22,7 @@ export const AnswerComponent: React.FC<Props> = (props: Props) => {
       <Button onClick={onAccept}>Acerté</Button>
       <Button onClick={onFail}>Fallé</Button>
       <div className={classes.finishReview}>
-        <NavigationButton path=''>Terminar</NavigationButton>
+        <NavigationButton path='/result'>Terminar</NavigationButton>
       </div>
     </div>
   )
