@@ -15,7 +15,7 @@ import { Route as LoginImport } from './../../scenes/login'
 import { Route as AuthImport } from './../../scenes/_auth'
 import { Route as IndexImport } from './../../scenes/index'
 import { Route as AuthDashboardIndexImport } from './../../scenes/_auth/dashboard/index'
-import { Route as AuthDashboardDeckDeckIdIndexImport } from './../../scenes/_auth/dashboard/deck/$deckId/index'
+import { Route as AuthDashboardCardDeckIdIndexImport } from './../../scenes/_auth/dashboard/card/$deckId/index'
 
 // Create/Update Routes
 
@@ -42,10 +42,10 @@ const AuthDashboardIndexRoute = AuthDashboardIndexImport.update({
   getParentRoute: () => AuthRoute,
 } as any)
 
-const AuthDashboardDeckDeckIdIndexRoute =
-  AuthDashboardDeckDeckIdIndexImport.update({
-    id: '/dashboard/deck/$deckId/',
-    path: '/dashboard/deck/$deckId/',
+const AuthDashboardCardDeckIdIndexRoute =
+  AuthDashboardCardDeckIdIndexImport.update({
+    id: '/dashboard/card/$deckId/',
+    path: '/dashboard/card/$deckId/',
     getParentRoute: () => AuthRoute,
   } as any)
 
@@ -81,11 +81,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthDashboardIndexImport
       parentRoute: typeof AuthImport
     }
-    '/_auth/dashboard/deck/$deckId/': {
-      id: '/_auth/dashboard/deck/$deckId/'
-      path: '/dashboard/deck/$deckId'
-      fullPath: '/dashboard/deck/$deckId'
-      preLoaderRoute: typeof AuthDashboardDeckDeckIdIndexImport
+    '/_auth/dashboard/card/$deckId/': {
+      id: '/_auth/dashboard/card/$deckId/'
+      path: '/dashboard/card/$deckId'
+      fullPath: '/dashboard/card/$deckId'
+      preLoaderRoute: typeof AuthDashboardCardDeckIdIndexImport
       parentRoute: typeof AuthImport
     }
   }
@@ -95,12 +95,12 @@ declare module '@tanstack/react-router' {
 
 interface AuthRouteChildren {
   AuthDashboardIndexRoute: typeof AuthDashboardIndexRoute
-  AuthDashboardDeckDeckIdIndexRoute: typeof AuthDashboardDeckDeckIdIndexRoute
+  AuthDashboardCardDeckIdIndexRoute: typeof AuthDashboardCardDeckIdIndexRoute
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
   AuthDashboardIndexRoute: AuthDashboardIndexRoute,
-  AuthDashboardDeckDeckIdIndexRoute: AuthDashboardDeckDeckIdIndexRoute,
+  AuthDashboardCardDeckIdIndexRoute: AuthDashboardCardDeckIdIndexRoute,
 }
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
@@ -110,7 +110,7 @@ export interface FileRoutesByFullPath {
   '': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
-  '/dashboard/deck/$deckId': typeof AuthDashboardDeckDeckIdIndexRoute
+  '/dashboard/card/$deckId': typeof AuthDashboardCardDeckIdIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -118,7 +118,7 @@ export interface FileRoutesByTo {
   '': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
-  '/dashboard/deck/$deckId': typeof AuthDashboardDeckDeckIdIndexRoute
+  '/dashboard/card/$deckId': typeof AuthDashboardCardDeckIdIndexRoute
 }
 
 export interface FileRoutesById {
@@ -127,21 +127,21 @@ export interface FileRoutesById {
   '/_auth': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/_auth/dashboard/': typeof AuthDashboardIndexRoute
-  '/_auth/dashboard/deck/$deckId/': typeof AuthDashboardDeckDeckIdIndexRoute
+  '/_auth/dashboard/card/$deckId/': typeof AuthDashboardCardDeckIdIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/login' | '/dashboard' | '/dashboard/deck/$deckId'
+  fullPaths: '/' | '' | '/login' | '/dashboard' | '/dashboard/card/$deckId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/login' | '/dashboard' | '/dashboard/deck/$deckId'
+  to: '/' | '' | '/login' | '/dashboard' | '/dashboard/card/$deckId'
   id:
     | '__root__'
     | '/'
     | '/_auth'
     | '/login'
     | '/_auth/dashboard/'
-    | '/_auth/dashboard/deck/$deckId/'
+    | '/_auth/dashboard/card/$deckId/'
   fileRoutesById: FileRoutesById
 }
 
@@ -179,7 +179,7 @@ export const routeTree = rootRoute
       "filePath": "_auth.tsx",
       "children": [
         "/_auth/dashboard/",
-        "/_auth/dashboard/deck/$deckId/"
+        "/_auth/dashboard/card/$deckId/"
       ]
     },
     "/login": {
@@ -189,8 +189,8 @@ export const routeTree = rootRoute
       "filePath": "_auth/dashboard/index.tsx",
       "parent": "/_auth"
     },
-    "/_auth/dashboard/deck/$deckId/": {
-      "filePath": "_auth/dashboard/deck/$deckId/index.tsx",
+    "/_auth/dashboard/card/$deckId/": {
+      "filePath": "_auth/dashboard/card/$deckId/index.tsx",
       "parent": "/_auth"
     }
   }
