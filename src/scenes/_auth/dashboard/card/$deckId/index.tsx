@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { DeckPod } from '#pods/card/index.ts';
+import { CardPod } from '#pods/card/index.ts';
 
 export const Route = createFileRoute('/_auth/dashboard/card/$deckId/')({
-  component: DeckPod,
+  component: CardPod,
 })
