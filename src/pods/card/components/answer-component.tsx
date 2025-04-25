@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { Card } from '../card-vm';
 import { NavigationButton } from '#common/components/index.ts';
+import { HeaderComponent } from './header-component';
 import * as classes from './answer-component.styles';
 
 interface Props {
@@ -17,8 +18,7 @@ export const AnswerComponent: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={classes.answer}>
-      <h1>{page}/{totalPage}</h1>
-      <h2>{card.translateWord}</h2>
+      <HeaderComponent title={card.translateWord} page={page} totalPage={totalPage} />
       <Button onClick={onAccept}>Acerté</Button>
       <Button onClick={onFail}>Fallé</Button>
       <div className={classes.finishReview}>

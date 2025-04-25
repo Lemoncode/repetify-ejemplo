@@ -7,6 +7,7 @@ export const card = css`
   gap: 10px;
   align-items: center;
   width: 50%;
+  min-height: 100%;
 `;
 
 export const finishReview = css`

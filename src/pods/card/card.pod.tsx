@@ -54,9 +54,9 @@ export const CardPod: React.FC = () => {
   }
 
   return (
-    <div>
+    <>
       {isNotAnswer ? <CardComponent totalPage={totalPage} page={page} card={card} onShowAnswer={handleShowAnswer} /> : <AnswerComponent totalPage={totalPage} page={page} card={card} onAccept={handleAccept} onFail={handleFail} />
       }
-    </div>
+    </>
   )
 };
