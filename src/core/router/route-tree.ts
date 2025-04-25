@@ -16,7 +16,7 @@ import { Route as AuthImport } from './../../scenes/_auth'
 import { Route as IndexImport } from './../../scenes/index'
 import { Route as AuthResultIndexImport } from './../../scenes/_auth/result/index'
 import { Route as AuthDashboardIndexImport } from './../../scenes/_auth/dashboard/index'
-import { Route as AuthCardDeckIdIndexImport } from './../../scenes/_auth/card/$deckId'
+import { Route as AuthCardDeckIdIndexImport } from './../../scenes/_auth/card/$deckId/index'
 
 // Create/Update Routes
 
@@ -87,18 +87,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthDashboardIndexImport
       parentRoute: typeof AuthImport
     }
-    '/_auth/card/$deckId/': {
-      id: '/_auth/card/$deckId/'
-      path: '/card/$deckId'
-      fullPath: '/card/$deckId'
-      preLoaderRoute: typeof AuthCardDeckIdIndexImport
-      parentRoute: typeof AuthImport
-    }
     '/_auth/result/': {
       id: '/_auth/result/'
       path: '/result'
       fullPath: '/result'
       preLoaderRoute: typeof AuthResultIndexImport
+      parentRoute: typeof AuthImport
+    }
+    '/_auth/card/$deckId/': {
+      id: '/_auth/card/$deckId/'
+      path: '/card/$deckId'
+      fullPath: '/card/$deckId'
+      preLoaderRoute: typeof AuthCardDeckIdIndexImport
       parentRoute: typeof AuthImport
     }
   }
@@ -108,14 +108,14 @@ declare module '@tanstack/react-router' {
 
 interface AuthRouteChildren {
   AuthDashboardIndexRoute: typeof AuthDashboardIndexRoute
-  AuthCardDeckIdIndexRoute: typeof AuthCardDeckIdIndexRoute
   AuthResultIndexRoute: typeof AuthResultIndexRoute
+  AuthCardDeckIdIndexRoute: typeof AuthCardDeckIdIndexRoute
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
   AuthDashboardIndexRoute: AuthDashboardIndexRoute,
-  AuthCardDeckIdIndexRoute: AuthCardDeckIdIndexRoute,
   AuthResultIndexRoute: AuthResultIndexRoute,
+  AuthCardDeckIdIndexRoute: AuthCardDeckIdIndexRoute,
 }
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
@@ -125,8 +125,8 @@ export interface FileRoutesByFullPath {
   '': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
-  '/card/$deckId': typeof AuthCardDeckIdIndexRoute
   '/result': typeof AuthResultIndexRoute
+  '/card/$deckId': typeof AuthCardDeckIdIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -134,8 +134,8 @@ export interface FileRoutesByTo {
   '': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard': typeof AuthDashboardIndexRoute
-  '/card/$deckId': typeof AuthCardDeckIdIndexRoute
   '/result': typeof AuthResultIndexRoute
+  '/card/$deckId': typeof AuthCardDeckIdIndexRoute
 }
 
 export interface FileRoutesById {
@@ -144,23 +144,23 @@ export interface FileRoutesById {
   '/_auth': typeof AuthRouteWithChildren
   '/login': typeof LoginRoute
   '/_auth/dashboard/': typeof AuthDashboardIndexRoute
-  '/_auth/card/$deckId/': typeof AuthCardDeckIdIndexRoute
   '/_auth/result/': typeof AuthResultIndexRoute
+  '/_auth/card/$deckId/': typeof AuthCardDeckIdIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '' | '/login' | '/dashboard' | '/card/$deckId' | '/result'
+  fullPaths: '/' | '' | '/login' | '/dashboard' | '/result' | '/card/$deckId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '' | '/login' | '/dashboard' | '/card/$deckId' | '/result'
+  to: '/' | '' | '/login' | '/dashboard' | '/result' | '/card/$deckId'
   id:
-  | '__root__'
-  | '/'
-  | '/_auth'
-  | '/login'
-  | '/_auth/dashboard/'
-  | '/_auth/card/$deckId/'
-  | '/_auth/result/'
+    | '__root__'
+    | '/'
+    | '/_auth'
+    | '/login'
+    | '/_auth/dashboard/'
+    | '/_auth/result/'
+    | '/_auth/card/$deckId/'
   fileRoutesById: FileRoutesById
 }
 
@@ -198,6 +198,7 @@ export const routeTree = rootRoute
       "filePath": "_auth.tsx",
       "children": [
         "/_auth/dashboard/",
+        "/_auth/result/",
         "/_auth/card/$deckId/"
       ]
     },
@@ -206,6 +207,10 @@ export const routeTree = rootRoute
     },
     "/_auth/dashboard/": {
       "filePath": "_auth/dashboard/index.tsx",
+      "parent": "/_auth"
+    },
+    "/_auth/result/": {
+      "filePath": "_auth/result/index.tsx",
       "parent": "/_auth"
     },
     "/_auth/card/$deckId/": {
