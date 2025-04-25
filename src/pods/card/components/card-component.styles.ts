@@ -8,6 +8,13 @@ export const card = css`
   align-items: center;
   width: 50%;
   min-height: 100%;
+  justify-content: space-between;
+`;
+
+export const main = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const finishReview = css`

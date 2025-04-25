@@ -17,8 +17,10 @@ export const CardComponent: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={classes.card}>
-      <HeaderComponent title={card.originalWord} page={page} totalPage={totalPage} />
-      <Button onClick={onShowAnswer}>Ver respuesta</Button>
+      <div className={classes.main}>
+        <HeaderComponent title={card.originalWord} page={page} totalPage={totalPage} />
+        <Button onClick={onShowAnswer}>Ver respuesta</Button>
+      </div>
       <div className={classes.finishReview}>
         <NavigationButton path='/result'>Terminar</NavigationButton>
       </div>

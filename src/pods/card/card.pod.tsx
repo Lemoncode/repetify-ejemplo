@@ -5,6 +5,7 @@ import { CardComponent, AnswerComponent } from './components';
 import { getCard, countCard } from './api';
 import { Card, createEmptyCard } from './card-vm';
 import { mapCardFromApiModelToVmModel } from './card-mappers';
+import * as classes from './card.styles';
 
 export const CardPod: React.FC = () => {
   const { deckId } = useParams({ strict: false });
@@ -54,9 +55,9 @@ export const CardPod: React.FC = () => {
   }
 
   return (
-    <>
+    <div className={classes.root}>
       {isNotAnswer ? <CardComponent totalPage={totalPage} page={page} card={card} onShowAnswer={handleShowAnswer} /> : <AnswerComponent totalPage={totalPage} page={page} card={card} onAccept={handleAccept} onFail={handleFail} />
       }
-    </>
+    </div>
   )
 };

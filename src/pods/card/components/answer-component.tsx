@@ -18,9 +18,11 @@ export const AnswerComponent: React.FC<Props> = (props: Props) => {
 
   return (
     <div className={classes.answer}>
-      <HeaderComponent title={card.translateWord} page={page} totalPage={totalPage} />
-      <Button onClick={onAccept}>Acerté</Button>
-      <Button onClick={onFail}>Fallé</Button>
+      <div className={classes.main}>
+        <HeaderComponent title={card.translateWord} page={page} totalPage={totalPage} />
+        <Button onClick={onAccept}>Acerté</Button>
+        <Button onClick={onFail}>Fallé</Button>
+      </div>
       <div className={classes.finishReview}>
         <NavigationButton path='/result'>Terminar</NavigationButton>
       </div>
