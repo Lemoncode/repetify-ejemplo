@@ -15,7 +15,7 @@ import { Route as LoginImport } from './../../scenes/login'
 import { Route as AuthImport } from './../../scenes/_auth'
 import { Route as IndexImport } from './../../scenes/index'
 import { Route as AuthDashboardIndexImport } from './../../scenes/_auth/dashboard/index'
-import { Route as AuthCardDeckIdIndexImport } from './../../scenes/_auth/card/$deckId'
+import { Route as AuthCardDeckIdIndexImport } from './../../scenes/_auth/card/$deckId/index'
 
 // Create/Update Routes
 
@@ -135,12 +135,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '' | '/login' | '/dashboard' | '/card/$deckId'
   id:
-  | '__root__'
-  | '/'
-  | '/_auth'
-  | '/login'
-  | '/_auth/dashboard/'
-  | '/_auth/card/$deckId/'
+    | '__root__'
+    | '/'
+    | '/_auth'
+    | '/login'
+    | '/_auth/dashboard/'
+    | '/_auth/card/$deckId/'
   fileRoutesById: FileRoutesById
 }
 
