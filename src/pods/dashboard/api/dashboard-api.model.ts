@@ -1,7 +1,7 @@
 export interface Deck {
   id: string;
   name?: string;
-  descripcion?: string;
+  description?: string;
   originalLanguage?: string;
   translatedLanguage?: string;
 }
