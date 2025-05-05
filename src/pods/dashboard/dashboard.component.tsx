@@ -2,16 +2,11 @@ import React from 'react';
 import { Deck } from './dashboard.vm';
 import * as classes from './dashboard.component.style';
 import { NavigationButton } from '#common/components/index.ts';
+import { colorStylePalettes } from './dashboard.constants';
 
 interface Props {
   decks: Deck[];
 }
-
-const colorStylePalettes = [
-  { bg: '#eff6ff', border: '#bfdbfe', text: '#1d4ed8' },
-  { bg: '#fdf2f8', border: '#fbcfe8', text: '#be185d' },
-  { bg: '#ecfdf5', border: '#a7f3d0', text: '#065f46' },
-];
 
 export const DashboardListComponent: React.FC<Props> = ({ decks }) => {
   return (
