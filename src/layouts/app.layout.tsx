@@ -10,7 +10,7 @@ export const AppLayout: React.FC<Props> = props => {
   const { children } = props;
   return (
     <div className={classes.root}>
-      <PaperComponent style={{ maxWidth: '480px', width: '100%', padding: '30px' }}>{children}</PaperComponent>
+      <PaperComponent className={classes.content}>{children}</PaperComponent>
     </div>
   );
 };
