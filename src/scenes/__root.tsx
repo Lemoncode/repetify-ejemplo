@@ -1,14 +1,8 @@
 import * as React from 'react';
 import { Outlet, createRootRouteWithContext } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '#core/router/router.dev-tools';
-import type { AuthContextModel } from '#core/auth';
-import type { Notify } from '#core/notification';
-interface Context {
-  auth: AuthContextModel;
-  notification: Notify;
-}
 
-export const Route = createRootRouteWithContext<Context>()({
+export const Route = createRootRouteWithContext()({
   component: () => {
     return (
       <>
