@@ -8,7 +8,7 @@ interface Props {
 export const MicrosoftLoginComponent: React.FC<Props> = ({ onMicrosoftLogin }) => {
   return (
     <button className={classes.microsoftButton} onClick={onMicrosoftLogin}>
-      Iniciar sesión con Microsoft
+      <img src="/microsoft-logo.svg" alt="Logo Microsoft" />
     </button>
   );
 };

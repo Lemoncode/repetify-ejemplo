@@ -6,5 +6,9 @@ export const content = css`
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 20px;
+`;
+
+export const logo = css`
+  width: 200px;
 `;
