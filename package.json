@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "run-p -l start:vite type-check:watch",
-    "start:vite": "vite",
+    "start:vite": "vite --port 8080",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "type-check": "tsc -b --noEmit --preserveWatchOutput",

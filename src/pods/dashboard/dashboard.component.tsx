@@ -14,20 +14,24 @@ export const DashboardListComponent: React.FC<Props> = ({ decks }) => {
       <h1 className={classes.title}>Elige tu mazo</h1>
       <p className={classes.subtitle}>Selecciona una categoría para comenzar a responder preguntas:</p>
       <div className={classes.cards}>
-        {decks.map((deck, index) => {
-          const colorStyle = colorStylePalettes[index % colorStylePalettes.length];
-          return (
-            <NavigationButton
-              key={deck.id}
-              path="/card/$deckId"
-              params={{ deckId: deck.id }}
-              sx={classes.navigationButtonSx(colorStyle)}
-              aria-label={`Seleccionar mazo ${deck.name}`}
-            >
-              <span className={classes.cardText(colorStyle)}>{deck.name}</span>
-            </NavigationButton>
-          );
-        })}
+        {decks.length > 0 ? (
+          decks.map((deck, index) => {
+            const colorStyle = colorStylePalettes[index % colorStylePalettes.length];
+            return (
+              <NavigationButton
+                key={deck.id}
+                path="/card/$deckId"
+                params={{ deckId: deck.id }}
+                sx={classes.navigationButtonSx(colorStyle)}
+                aria-label={`Seleccionar mazo ${deck.name}`}
+              >
+                <span className={classes.cardText(colorStyle)}>{deck.name}</span>
+              </NavigationButton>
+            );
+          })
+        ) : (
+          <p className={classes.emptyDeck}>No hay mazos disponibles</p>
+        )}
       </div>
     </div>
   );

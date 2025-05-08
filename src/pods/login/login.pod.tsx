@@ -1,20 +1,10 @@
-import { NavigationButton } from '#common/components/index.ts';
 import React from 'react';
+import { LoginComponent } from './login.component';
 
 export const LoginPod: React.FC = () => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1rem',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
-      <h1>Login</h1>
-      <NavigationButton path="/dashboard">Go to Dashboard</NavigationButton>
-    </div>
-  );
+  const handleMicrosoftLogin = () => {
+    window.location.href = '/api/ExternalLogin/initiateMicrosoftSignin';
+  };
+
+  return <LoginComponent onMicrosoftLogin={handleMicrosoftLogin} />;
 };
