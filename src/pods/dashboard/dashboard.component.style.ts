@@ -52,3 +52,8 @@ export const cardText = (color: { text: string }) => css`
   font-weight: 600;
   color: ${color.text};
 `;
+
+export const emptyDeck = css`
+  display: flex;
+  justify-content: center;
+`;
