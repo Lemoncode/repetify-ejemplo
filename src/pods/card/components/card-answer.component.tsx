@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import * as classes from './card-answer.component.style';
 import { NavigationButton } from '#common/components/index.ts';
 
@@ -18,17 +18,17 @@ export const CardAnswerComponent: React.FC<Props> = ({ translatedWord, currentIn
       </div>
       <div className={classes.word}>{translatedWord}</div>
       <div className={classes.feedbackButtons}>
-        <Button sx={classes.btnEmojiSx} onClick={() => onNext(true)}>
+        <Button className={classes.btnEmojiSx} onClick={() => onNext(true)} color="success">
           <span role="img" aria-hidden className={classes.emoji}>
             😊
           </span>
-          Acerté
+          <Typography variant="h6">Acerte</Typography>
         </Button>
-        <Button sx={classes.btnEmojiSx} onClick={() => onNext(false)}>
+        <Button className={classes.btnEmojiSx} onClick={() => onNext(false)} color="error">
           <span role="img" aria-hidden className={classes.emoji}>
             😣
           </span>
-          Fallé
+          <Typography variant="h6">Fallé</Typography>
         </Button>
       </div>
       <NavigationButton path="/dashboard" className={classes.terminateLink}>

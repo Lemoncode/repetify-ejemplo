@@ -1,6 +1,4 @@
 import { css } from '@emotion/css';
-import { SxProps } from '@mui/material';
-import { Theme } from '@emotion/react';
 
 export const counter = css`
   font-size: 1rem;
@@ -17,26 +15,33 @@ export const word = css`
 
 export const feedbackButtons = css`
   display: flex;
+  flex-direction: column;
   gap: 16px;
+  width: 100%;
 `;
 
-export const btnEmojiSx: SxProps<Theme> = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  padding: '12px',
-  border: '2px solid #d1d5db',
-  borderRadius: 4,
-  cursor: 'pointer',
-  transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-  '&:hover': {
-    transform: 'scale(1.1)',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-  },
-};
+export const btnEmojiSx = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid #d1d5db;
+  border-radius: 4;
+  background-color: #f9fafb;
+  cursor: pointer;
+  height: 200px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f3f4f6;
+  }
+`;
 
 export const emoji = css`
-  font-size: 2rem;
+  font-size: 4rem;
 `;
 
 export const terminateLink = css`
